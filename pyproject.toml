@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "geometry-calculator"
+version = "0.1.0"
+description = "Модуль для вычисления элементов прямоугольного треугольника"
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "C90", "N", "UP"]
+ignore = ["E501"]
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["S101"]
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --tb=short --strict-markers --cov=src --cov-report=term-missing"
